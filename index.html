@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Estates Management</title>
+
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        header {
+            background-color: #0a4275;
+            color: white;
+            padding: 20px 40px;
+            text-align: center;
+        }
+
+        nav {
+            margin-top: 10px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #ffce00;
+        }
+
+        .hero {
+            background: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c') no-repeat center center/cover;
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .properties {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .property-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .property-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .property-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .property-card .info {
+            padding: 20px;
+        }
+
+        .property-card .info h3 {
+            margin-bottom: 10px;
+            color: #0a4275;
+        }
+
+        .property-card .info p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .contact {
+            background-color: #0a4275;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 40px;
+        }
+
+        .contact h2 {
+            margin-bottom: 20px;
+        }
+
+        .contact p {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        footer {
+            background-color: #052a4c;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Hero Text */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Prime Estates Management</h1>
+        <nav>
+            <a href="./views/login.php">Login</a>
+            <a href="#properties">Properties</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Your Dream Home Awaits</h1>
+    </section>
+
+    <section class="container" id="properties">
+        <h2 style="text-align: center; margin-bottom: 30px;">Avaiilable Properties</h2>
+        <div class="properties">
+            <div class="property-card">
+                <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be" alt="Luxury Villa">
+                <div class="info">
+                    <h3>Luxury Villa</h3>
+                    <p>4 Bed | 5 Bath | Pool | $950,000</p>
+                </div>
+            </div>
+
+            <div class="property-card">
+                <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994" alt="Modern Apartment">
+                <div class="info">
+                    <h3>Modern Apartment</h3>
+                    <p>2 Bed | 2 Bath | City View | $400,000</p>
+                </div>
+            </div>
+
+            <div class="property-card">
+                <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2" alt="Cozy Cottage">
+                <div class="info">
+                    <h3>Cozy Cottage</h3>
+                    <p>3 Bed | 2 Bath | Garden | $300,000</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <h2>Contact Us</h2>
+        <p>Email: info@primeestates.com</p>
+        <p>Phone: +1 (555) 123-4567</p>
+        <p>Address: 123 Estate Blvd, Beverly Hills, CA</p>
+    </section>
+
+    <footer>
+        &copy; 2025 Prime Estates Management. All Rights Reserved.
+    </footer>
+
+</body>
+</html>
