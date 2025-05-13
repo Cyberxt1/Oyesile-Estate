@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login | Oyesile Estate</title>
+  <link rel="stylesheet" href="../css/login.css" />
+</head>
+
+<body>
+  <h1 class="welcome-text">Welcome to Oyesile Estate</h1>
+  <div class="auth-card">
+    <h2>Login</h2>
+
+    <?php if (!empty($error)): ?>
+    <p style="color: red;">
+      <?= htmlspecialchars($error) ?>
+    </p>
+    <?php endif; ?>
+
+    <form action="login.php" method="POST" class="auth-form">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required />
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required />
+      </div>
+
+      <button type="submit" class="auth-btn">Login</button>
+      <p class="redirect-link">
+        Don't have an account? <a href="./signup.html">Sign up</a>
+      </p>
+    </form>
+  </div>
+</body>
+
+</html>

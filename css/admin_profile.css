@@ -5,7 +5,7 @@
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f2f5f9;
   color: #333;
 }
@@ -37,6 +37,10 @@ body {
   color: #ff7300;
 }
 
+.sidebar a.active {
+  color: #ff7300;
+}
+
 .main {
   margin-left: 250px;
   padding: 40px;
@@ -63,7 +67,7 @@ body {
   background: white;
   padding: 30px;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: 0.3s;
 }
 
@@ -76,9 +80,27 @@ body {
   color: #003366;
 }
 
-.card p {
-  font-size: 14px;
-  color: #666;
+.card input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.card input:disabled {
+  background-color: #eee;
+}
+
+button {
+  background-color: #003366;
+  color: white;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 8px;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 16px;
 }
 
 footer {
@@ -91,11 +113,11 @@ footer {
 
 @media (max-width: 768px) {
   .sidebar {
-      width: 100%;
-      height: auto;
-      position: relative;
+    width: 100%;
+    height: auto;
+    position: relative;
   }
   .main {
-      margin-left: 0;
+    margin-left: 0;
   }
 }

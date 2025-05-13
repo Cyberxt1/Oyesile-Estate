@@ -1,56 +1,69 @@
 <?php
-session_start();
-if ($_SESSION["role"] !== "admin") {
-    header("Location: ../views/login.php"); // Redirect to login if not admin
-    exit;
+// ✅ Start session safely
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
 }
 
-// Check if the user is logged in (redirect if not)
-if (!isset($_SESSION['user_id'])) {
-    header("Location: login.php");
-    exit;
+// ✅ Restrict access to only logged-in users
+if (!isset($_SESSION['resident_email']) || empty($_SESSION['resident_email'])) {
+    header("Location: ../views/login.php");
+    exit();
 }
 
-// Fetching dynamic data from the database (just an example)
-include('../includes/db.php'); // Include your DB connection
+// ✅ Connect to DB
+require_once('../includes/db.php');
 
-// Sample data fetching - replace this with actual queries to fetch data
-$totalResidents = 245; // Example: get from DB
-$housesOccupied = 180; // Example: get from DB
-$pendingComplaints = 5; // Example: get from DB
-$outstandingPayments = 12500; // Example: get from DB
+try {
+    // Total residents
+    $stmt = $pdo->query("SELECT COUNT(*) FROM residents");
+    $totalResidents = $stmt->fetchColumn();
+
+    // Houses occupied
+    $stmt = $pdo->query("SELECT COUNT(DISTINCT house_no) FROM residents WHERE house_no IS NOT NULL");
+    $housesOccupied = $stmt->fetchColumn();
+
+    // Temporary placeholders for now
+    $pendingComplaints = 0;
+    $outstandingPayments = 0.00;
+} catch (PDOException $e) {
+    die("Error fetching dashboard data: " . $e->getMessage());
+}
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Estate Management Portal</title>
     <link rel="stylesheet" href="../css/styles.css">
 </head>
+
 <body>
     <div class="sidebar">
-        <h2>Estate Portal</h2>
+        <h2 style="color: Gold;">Oyesile Estate</h2>
         <a href="#">Dashboard</a>
-        <a href="#">Residents</a>
+        <a href="./residents/residents.php">Residents</a>
         <a href="#">Houses</a>
         <a href="#">Payments</a>
         <a href="#">Complaints</a>
-        <a href="#">Announcements</a>
-        <a href="#">Settings</a>
-        <a href="../views/logout.php">Logout</a> <!-- Logout link -->
+        <a href="./admin_profile.php">Manage Profile</a>
+        <a href="./admin_announcement.php">Announcements</a>
+        <a href="../views/logout.php">Logout</a>
     </div>
 
     <div class="main">
         <div class="header">
             <h1>Dashboard</h1>
-            <p>Welcome, <?= htmlspecialchars($_SESSION['username']); ?></p> <!-- Displaying the username -->
+            <p>Welcome, <?= htmlspecialchars($_SESSION['resident_name']); ?> (<?= htmlspecialchars($_SESSION['resident_role']); ?>)</p>
         </div>
 
         <div class="cards">
             <div class="card">
-                <h3>Total Residents</h3>
+                <a href="./residents/residents.php" style="text-decoration: none;">
+                    <h3>Total Residents</h3>
+                </a>
                 <p><?= $totalResidents; ?> Residents</p>
             </div>
             <div class="card">
@@ -59,7 +72,7 @@ $outstandingPayments = 12500; // Example: get from DB
             </div>
             <div class="card">
                 <h3>Pending Complaints</h3>
-                <p><?= $pendingComplaints; ?> New Issues</p>
+                <p><?= $pendingComplaints; ?> Issues</p>
             </div>
             <div class="card">
                 <h3>Outstanding Payments</h3>
@@ -72,4 +85,5 @@ $outstandingPayments = 12500; // Example: get from DB
         </footer>
     </div>
 </body>
+
 </html>
