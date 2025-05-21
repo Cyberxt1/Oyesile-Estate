@@ -2,7 +2,7 @@
 $host = '127.0.0.1';
 $db   = 'estate_portal';
 $user = 'root';
-$pass = 'N3xtk3v!n05';
+$pass = 'N3xtk3v!n';
 $charset = 'utf8mb4';
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";

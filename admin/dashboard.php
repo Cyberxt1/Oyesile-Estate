@@ -38,52 +38,55 @@ try {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Estate Management Portal</title>
     <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/sidebar.css">
 </head>
 
 <body>
-    <div class="sidebar">
-        <h2 style="color: Gold;">Oyesile Estate</h2>
-        <a href="#">Dashboard</a>
-        <a href="./residents/residents.php">Residents</a>
-        <a href="#">Houses</a>
-        <a href="#">Payments</a>
-        <a href="#">Complaints</a>
-        <a href="./admin_profile.php">Manage Profile</a>
-        <a href="./admin_announcement.php">Announcements</a>
-        <a href="../views/logout.php">Logout</a>
+    <div class="sidebar-overlay"></div>
+    <div class="sidebar animated-sidebar closed">
+        <h2 class="estate-title">Oyesile Estate</h2>
+        <a href="/admin/dashboard.php" class="sidebar-link">Dashboard</a>
+        <a href="/admin/residents/residents.php" class="sidebar-link">Residents</a>
+        <a href="#" class="sidebar-link">Houses</a>
+        <a href="#" class="sidebar-link">Payments</a>
+        <a href="#" class="sidebar-link">Complaints</a>
+        <a href="/admin/admin_profile.php" class="sidebar-link">Manage Profile</a>
+        <a href="/admin/admin_announcement.php" class="sidebar-link">Announcements</a>
+        <a href="/views/logout.php" class="sidebar-link">Logout</a>
     </div>
 
     <div class="main">
-        <div class="header">
+        <div class="header animated-header">
             <h1>Dashboard</h1>
-            <p>Welcome, <?= htmlspecialchars($_SESSION['resident_name']); ?> (<?= htmlspecialchars($_SESSION['resident_role']); ?>)</p>
+            <p>Welcome, <span class="user-name"><?= htmlspecialchars($_SESSION['resident_name']); ?></span> (<span class="user-role"><?= htmlspecialchars($_SESSION['resident_role']); ?></span>)</p>
         </div>
 
         <div class="cards">
-            <div class="card">
-                <a href="./residents/residents.php" style="text-decoration: none;">
+            <div class="card dashboard-card fade-in">
+                <a href="./residents/residents.php" style="text-decoration: none; color: inherit;">
                     <h3>Total Residents</h3>
                 </a>
                 <p><?= $totalResidents; ?> Residents</p>
             </div>
-            <div class="card">
+            <div class="card dashboard-card fade-in" style="animation-delay: 0.1s;">
                 <h3>Houses Occupied</h3>
                 <p><?= $housesOccupied; ?> Houses</p>
             </div>
-            <div class="card">
+            <div class="card dashboard-card fade-in" style="animation-delay: 0.2s;">
                 <h3>Pending Complaints</h3>
                 <p><?= $pendingComplaints; ?> Issues</p>
             </div>
-            <div class="card">
+            <div class="card dashboard-card fade-in" style="animation-delay: 0.3s;">
                 <h3>Outstanding Payments</h3>
                 <p>$<?= number_format($outstandingPayments, 2); ?> Due</p>
             </div>
         </div>
 
-        <footer>
+        <footer class="footer">
             &copy; 2025 Estate Management Portal. All Rights Reserved.
         </footer>
     </div>
+    <!-- <script src="../js/sidebar-toggle.js"></script> -->
 </body>
 
 </html>

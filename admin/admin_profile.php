@@ -45,17 +45,21 @@ if (!$resident) {
   <meta charset="UTF-8">
   <title>Admin Profile</title>
   <link rel="stylesheet" href="../css/admin_profile.css">
+  <link rel="stylesheet" href="../css/sidebar.css">
 </head>
 
 <body>
-  <div class="sidebar">
-    <h2>Oyesile Estate</h2>
-    <a href="./dashboard.php">Dashboard</a>
-    <a href="admin_profile.php" class="active">Manage Profile</a>
-    <a href="./residents/residents.php">Manage Users</a>
-    <a href="manage_dues.php">Manage Dues</a>
-    <a href="./admin_announcement.php">Announcements</a>
-    <a href="../views/logout.php">Logout</a>
+  <div class="sidebar-overlay"></div>
+  <div class="sidebar animated-sidebar closed">
+    <h2 class="estate-title">Oyesile Estate</h2>
+    <a href="/admin/dashboard.php" class="sidebar-link">Dashboard</a>
+    <a href="/admin/residents/residents.php" class="sidebar-link">Residents</a>
+    <a href="#" class="sidebar-link">Houses</a>
+    <a href="#" class="sidebar-link">Payments</a>
+    <a href="#" class="sidebar-link">Complaints</a>
+    <a href="/admin/admin_profile.php" class="sidebar-link">Manage Profile</a>
+    <a href="/admin/admin_announcement.php" class="sidebar-link">Announcements</a>
+    <a href="/views/logout.php" class="sidebar-link">Logout</a>
   </div>
 
   <div class="main">
@@ -103,6 +107,7 @@ if (!$resident) {
       saveBtn.style.display = 'inline-block';
     });
   </script>
+  <script src="../js/sidebar-toggle.js"></script>
 </body>
 
 </html>

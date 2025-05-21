@@ -48,14 +48,16 @@ if (!$resident) {
 </head>
 
 <body>
-  <div class="sidebar">
-    <h2>Oyesile Estate</h2>
-    <a href="user_dashboard.php">Dashboard</a>
-    <a href="profile.php" class="active">My Profile</a>
-    <a href="complaints.php">My Complaints</a>
-    <a href="payments.php">Pay Dues</a>
-    <a href="announcements.php">Announcements</a>
-    <a href="../views/logout.php">Logout</a>
+  <div class="sidebar animated-sidebar">
+    <h2 class="estate-title">Oyesile Estate</h2>
+    <a href="/admin/dashboard.php" class="sidebar-link">Dashboard</a>
+    <a href="/admin/residents/residents.php" class="sidebar-link">Residents</a>
+    <a href="#" class="sidebar-link">Houses</a>
+    <a href="#" class="sidebar-link">Payments</a>
+    <a href="#" class="sidebar-link">Complaints</a>
+    <a href="/admin/admin_profile.php" class="sidebar-link">Manage Profile</a>
+    <a href="/admin/admin_announcement.php" class="sidebar-link">Announcements</a>
+    <a href="/views/logout.php" class="sidebar-link">Logout</a>
   </div>
 
   <div class="main">

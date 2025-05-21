@@ -1,0 +1,56 @@
+
+.sidebar {
+  width: 240px;
+  background: #1a2233;
+  color: #fff;
+  min-height: 100vh;
+  padding: 32px 0 0 0;
+  box-shadow: 2px 0 16px rgba(0, 0, 0, 0.07);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  transition: box-shadow 0.3s;
+}
+.animated-sidebar {
+  animation: slideInLeft 0.7s cubic-bezier(0.77, 0, 0.18, 1) 0.1s both;
+}
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+.estate-title {
+  color: gold;
+  font-size: 2rem;
+  margin-bottom: 2.5rem;
+  letter-spacing: 1px;
+  font-weight: 700;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+.sidebar-link {
+  color: #cfd8dc;
+  text-decoration: none;
+  padding: 14px 32px;
+  width: 100%;
+  display: block;
+  font-size: 1.08rem;
+  border-left: 4px solid transparent;
+  transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.2s;
+  margin-bottom: 4px;
+}
+.sidebar-link:hover,
+.sidebar-link.active {
+  background: #232c43;
+  color: #ffd700;
+  border-left: 4px solid #ffd700;
+  transform: translateX(6px) scale(1.04);
+}
